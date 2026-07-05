@@ -24,3 +24,8 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+      # Absolute base URL baked into the page's canonical / Open Graph / Twitter
+      # tags at build time. Set this to your service's actual URL so link
+      # previews and search engines resolve the right domain and social image.
+      - key: VITE_SITE_URL
+        value: https://wolfandsheep.onrender.com

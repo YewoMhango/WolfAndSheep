@@ -1,0 +1,15 @@
+{
+  "name": "Wolf & Sheep",
+  "short_name": "Wolf & Sheep",
+  "description": "The classic Wolf & Sheep (Fox & Hounds) strategy board game. Play online against a friend or locally on one device.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#14181f",
+  "theme_color": "#14181f",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+  ]
+}
