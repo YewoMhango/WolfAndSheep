@@ -1,0 +1,23 @@
+.indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.indicator svg {
+  display: block;
+}
+
+.online {
+  color: var(--accent-secondary);
+}
+
+.connecting {
+  color: var(--accent);
+}
+
+.offline {
+  color: var(--wolf);
+}

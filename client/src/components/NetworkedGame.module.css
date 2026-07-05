@@ -1,0 +1,24 @@
+.banner {
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--background-elevated);
+  color: var(--accent);
+}
+
+.hint {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 14px;
+  margin: 0;
+}
+
+.hintRole {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  vertical-align: middle;
+  color: var(--text);
+  font-weight: 600;
+}

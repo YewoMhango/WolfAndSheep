@@ -1,0 +1,122 @@
+.menu {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  justify-content: center;
+}
+
+.hero {
+  text-align: center;
+}
+
+.heroIcons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.title {
+  margin: 6px 0 4px;
+  font-size: 40px;
+  letter-spacing: 0.5px;
+}
+
+.tagline {
+  color: var(--text-dim);
+  margin: 0 auto;
+  max-width: 42ch;
+  line-height: 1.5;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bigButton {
+  font: inherit;
+  color: var(--text);
+  background: var(--background-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  padding: 18px 20px;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.06s ease, background 0.15s ease;
+}
+
+.bigButton:hover {
+  background: #2f3a4c;
+}
+
+.bigButton:active {
+  transform: translateY(1px);
+}
+
+.primary {
+  background: var(--accent);
+  color: #201400;
+  border-color: transparent;
+}
+
+.primary:hover {
+  background: var(--accent-strong);
+}
+
+.bigButtonText {
+  display: block;
+}
+
+.bigButtonText strong {
+  display: block;
+  font-size: 17px;
+}
+
+.bigButtonText small {
+  display: block;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.primary .bigButtonText small {
+  color: #6b4a00;
+}
+
+.rules {
+  background: var(--background-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 4px 18px;
+}
+
+.rules summary {
+  cursor: pointer;
+  padding: 12px 0;
+  font-weight: 600;
+}
+
+.rules ul {
+  margin: 0 0 14px;
+  padding-left: 20px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+.inlineRole {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: middle;
+  color: var(--text);
+  font-weight: 600;
+}

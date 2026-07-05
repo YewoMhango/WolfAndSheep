@@ -1,0 +1,49 @@
+/* Global theme: CSS custom properties, base reset, and page layout.
+   Everything component-specific lives in a co-located *.module.css file. */
+:root {
+  --background: #14181f;
+  --background-panel: #1e2530;
+  --background-elevated: #273040;
+  --text: #e8ecf3;
+  --text-dim: #9aa6b8;
+  --accent: #f5a742;
+  --accent-strong: #ffb954;
+  --accent-secondary: #6ba368;
+  --wolf: #c94f4f;
+  --sheep: #4f8fc9;
+  --border: #333d4d;
+
+  --square-light: #e9d3ac;
+  --square-dark: #7a5236;
+  --square-frame: #3a2817;
+  --square-target: rgba(107, 163, 104, 0.55);
+  --square-selected: rgba(245, 167, 66, 0.6);
+  --square-last-move: rgba(245, 167, 66, 0.22);
+
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(1200px 800px at 50% -10%, #202a3a, var(--background)) fixed;
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}

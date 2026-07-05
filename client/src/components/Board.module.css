@@ -1,0 +1,90 @@
+/* The board area absorbs the slack in the game screen and centres the board. */
+.boardArea {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+/* The board is the largest square that fits the available space: it is capped
+   by the viewport width, by the viewport height (leaving room for the header,
+   status bar and hint), and by a maximum size — so it scales with the screen
+   without ever overflowing. */
+.board {
+  --board-size: min(92vw, calc(100dvh - 210px), 600px);
+  width: var(--board-size);
+  height: var(--board-size);
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 4px solid var(--square-frame);
+  touch-action: manipulation;
+}
+
+/* Eight equal-height rows keep every cell a fixed square, so a cell never grows
+   taller just because it holds a piece. */
+.square {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.light {
+  background: var(--square-light);
+}
+
+.dark {
+  background: var(--square-dark);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.lastMove::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--square-last-move);
+  pointer-events: none;
+}
+
+.selected {
+  box-shadow: inset 0 0 0 4px var(--square-selected);
+}
+
+.target::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--square-target);
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.piece {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.4));
+  transition: transform 0.12s ease;
+}
+
+.clickable:hover .piece {
+  transform: scale(1.08);
+}
+
+.dot {
+  width: 26%;
+  height: 26%;
+  border-radius: 50%;
+  background: var(--accent-secondary);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
