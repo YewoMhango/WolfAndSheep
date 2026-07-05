@@ -65,6 +65,36 @@ For production, run `npm run build` then `npm start` — the Express server serv
 built client and handles WebSockets from the same origin (default port `3001`, override
 with `SERVER_PORT`).
 
+## Deploy to Render
+
+The repo ships a [`render.yaml`](./render.yaml) blueprint that deploys everything as a
+**single Render Web Service** — the Express server builds and serves the React client and
+handles the `/ws` WebSocket from one origin, so there is no separate static site or CORS
+to configure.
+
+1. Push this repo to GitHub or GitLab.
+2. In the Render dashboard: **New +** → **Blueprint**, and select the repo. Render reads
+   `render.yaml` and provisions the service:
+   - **Build:** `npm install --include=dev && npm run build`
+   - **Start:** `npm start`
+   - **Health check:** `/health`
+   - **Node version:** pinned by [`.node-version`](./.node-version)
+3. Deploy. Render assigns a URL and injects `PORT` (the server already reads it); WebSockets
+   run over the same URL automatically.
+
+Notes:
+- The blueprint uses the **free** plan, which spins down after ~15 minutes without an
+  inbound HTTP request (cold starts on the next visit). Change `plan` to `starter` in
+  `render.yaml` for an always-on instance.
+- **Staying awake during a game:** once players are in an online match they communicate
+  over the WebSocket, which doesn't reliably reset Render's HTTP idle timer, so a long game
+  could otherwise get spun down mid-play. The client sends a lightweight `/health` request
+  every 14 minutes *while a user is in the online flow* (`useKeepServerAwake`) to prevent
+  that — no server-side always-on ping, so the free instance-hours are only spent when
+  someone is actually playing. This keeps a *running* instance awake; it can't wake one that
+  has already spun down (for that, add an external uptime pinger such as UptimeRobot).
+- Game state is in-memory, so a redeploy or spin-down ends any in-progress games.
+
 ## How online multiplayer works
 
 - Each browser tab gets a session token (kept in `sessionStorage`) so it can

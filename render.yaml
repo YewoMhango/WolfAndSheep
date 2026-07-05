@@ -1,0 +1,26 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+#
+# A single Web Service builds the React client and runs the Express + WebSocket
+# server. The server serves the built client (client/dist) and the /ws socket
+# from the same origin, so no separate static site or CORS setup is needed.
+#
+# To deploy: push this repo to GitHub/GitLab, then in the Render dashboard choose
+# "New +" -> "Blueprint" and point it at the repo. Render reads this file.
+services:
+  - type: web
+    name: wolf-and-sheep
+    runtime: node
+    # Free plan spins down after inactivity (cold starts). Bump to "starter"
+    # for an always-on instance.
+    plan: free
+    # Install dev dependencies too (vite, typescript) so the client can build,
+    # then produce client/dist. --include=dev keeps this working even when
+    # NODE_ENV=production would otherwise skip devDependencies.
+    buildCommand: npm install --include=dev && npm run build
+    # tsx runs the server directly from TypeScript source (a runtime dependency).
+    startCommand: npm start
+    # Render polls this endpoint to confirm the service is healthy.
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
