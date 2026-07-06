@@ -1,7 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { Globe, Users } from 'lucide-react';
 import { WolfIcon, SheepIcon } from '../ui/GamePieceIcon.js';
+import { GitHubIcon } from '../ui/GitHubIcon.js';
 import styles from './MenuScreen.module.css';
+
+const REPO_URL = 'https://github.com/YewoMhango/WolfAndSheep';
 
 export function MenuScreen() {
   const navigate = useNavigate();
@@ -63,6 +66,16 @@ export function MenuScreen() {
           </li>
         </ul>
       </details>
+
+      <a
+        className={styles.repoLink}
+        href={REPO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <GitHubIcon size={18} />
+        View source on GitHub
+      </a>
     </div>
   );
 }
