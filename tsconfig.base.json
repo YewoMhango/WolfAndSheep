@@ -13,10 +13,6 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "declaration": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "paths": {
-      "@wolf/shared": ["shared/src/index.ts"]
-    }
+    "sourceMap": true
   }
 }

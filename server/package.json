@@ -10,14 +10,14 @@
   },
   "dependencies": {
     "@wolf/shared": "*",
-    "express": "^4.21.2",
-    "nanoid": "^5.0.9",
-    "tsx": "^4.19.2",
-    "ws": "^8.18.0"
+    "express": "^5.2.1",
+    "nanoid": "^5.1.16",
+    "tsx": "^4.23.0",
+    "ws": "^8.21.0"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/node": "^22.10.2",
-    "@types/ws": "^8.5.13"
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.10.0",
+    "@types/ws": "^8.18.1"
   }
 }

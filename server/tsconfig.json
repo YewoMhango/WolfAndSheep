@@ -5,10 +5,7 @@
     "outDir": "./dist",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "types": ["node"],
-    "paths": {
-      "@wolf/shared": ["../shared/src/index.ts"]
-    }
+    "types": ["node"]
   },
   "include": ["src/**/*.ts"]
 }

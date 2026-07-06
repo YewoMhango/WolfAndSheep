@@ -19,7 +19,10 @@ app.get('/health', (_request, response) => {
 const clientDistPath = path.resolve(currentDirectory, '../../client/dist');
 if (existsSync(clientDistPath)) {
   app.use(express.static(clientDistPath));
-  app.get('*', (_request, response) => {
+  // SPA fallback: serve index.html for any other GET so client-side routes work
+  // on refresh/deep-link. Express 5 (path-to-regexp v8) no longer accepts a bare
+  // '*' path, so match any path with a RegExp instead.
+  app.get(/.*/, (_request, response) => {
     response.sendFile(path.join(clientDistPath, 'index.html'));
   });
 }
